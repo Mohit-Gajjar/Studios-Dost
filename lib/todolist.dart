@@ -21,7 +21,7 @@ class _TodoListPageState extends State<TodoListPage> {
   }
 
   void addTask() async {
-    Map<String, dynamic> data = {"task": _textEditingController.text};
+    Map<String, dynamic> data = {"task": _textEditingController.text, "id": id};
     Database().addTask(data, userId, id).then((val) {
       Navigator.pop(context);
     });
@@ -65,6 +65,8 @@ class _TodoListPageState extends State<TodoListPage> {
                 itemBuilder: (context, index) {
                   return TaskTile(
                     title: snapshot.data.docs[index]["task"],
+                    subtitle: snapshot.data.docs[index]["id"],
+                    userId: userId,
                   );
                 })
             : const Center(
@@ -91,8 +93,10 @@ class _TodoListPageState extends State<TodoListPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Todo List'),
+        elevation: 0,
       ),
-      body: taskTile(),
+      body:
+          Container(margin: const EdgeInsets.only(top: 10), child: taskTile()),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _displayTextInputDialog(context),
         child: const Icon(
@@ -105,12 +109,25 @@ class _TodoListPageState extends State<TodoListPage> {
 }
 
 class TaskTile extends StatelessWidget {
-  final String title;
-  const TaskTile({Key? key, required this.title}) : super(key: key);
+  final String title, subtitle, userId;
+  const TaskTile(
+      {Key? key,
+      required this.title,
+      required this.subtitle,
+      required this.userId})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      trailing: IconButton(
+        icon: const Icon(Icons.check_circle_outline),
+        onPressed: () {
+          Database().deleteTasks(userId, subtitle);
+          print("User id: " + userId);
+          print("Task id: " + subtitle);
+        },
+      ),
       leading: CircleAvatar(
         child: Text(title[0]),
       ),
