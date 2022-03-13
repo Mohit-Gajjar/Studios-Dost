@@ -15,6 +15,7 @@ class AuthMethord {
     
     try {
       return await _firebaseAuth.signOut();
+    // ignore: empty_catches
     } catch (e) {}
   }
 }

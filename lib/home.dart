@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:studiosdost/authentication.dart';
-import 'package:studiosdost/database.dart';
 import 'package:studiosdost/localdatabase.dart';
 import 'package:studiosdost/onboarding_screen.dart';
 import 'package:studiosdost/progress.dart';
@@ -25,7 +24,6 @@ class _HomeState extends State<Home> {
 
   void getName() async {
     name = (await LocalDatabase.getNameKey())!;
-    print(name + "11111111111111111111111");
     setState(() {});
   }
 

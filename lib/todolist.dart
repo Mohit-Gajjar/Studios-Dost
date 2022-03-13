@@ -16,17 +16,16 @@ class _TodoListPageState extends State<TodoListPage> {
   String userId = "";
   generateId() async {
     id = await nanoid(10);
-    userId = (await LocalDatabase.getUserId())!;
-    print(userId+" nnnnnnnnnnnnnnnnn");
+
     setState(() {});
   }
 
   void addTask() async {
     Map<String, dynamic> data = {"task": _textEditingController.text};
     Database().addTask(data, userId, id).then((val) {
-      print('Task Added');
       Navigator.pop(context);
     });
+    setState(() {});
   }
 
   Future<void> _displayTextInputDialog(BuildContext context) async {
@@ -78,8 +77,10 @@ class _TodoListPageState extends State<TodoListPage> {
     super.initState();
   }
 
-  getTasks() {
-    Database().getTasks(id).then((val) {
+  getTasks() async {
+    userId = (await LocalDatabase.getUserId())!;
+
+    Database().getTasks(userId).then((val) {
       taskStream = val;
       setState(() {});
     });

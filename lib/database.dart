@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Database {
-  String userId = " ";
   createUser(map, String id) async {
     return FirebaseFirestore.instance.collection('users').doc(id).set(map);
   }
@@ -16,15 +15,14 @@ class Database {
   }
 
   getTasks(String id) async {
-    print(userId);
     return FirebaseFirestore.instance
         .collection('users')
-        .where('id', isEqualTo: id)
+        .doc(id)
+        .collection('tasks')
         .snapshots();
   }
 
   getUserName(String id) async {
-    userId = id;
     QuerySnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
         .instance
         .collection('users')
