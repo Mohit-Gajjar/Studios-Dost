@@ -2,9 +2,11 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:studiosdost/Components/event_provider.dart';
+import 'package:studiosdost/Components/localdatabase.dart';
 import 'package:studiosdost/home.dart';
-import 'package:studiosdost/localdatabase.dart';
-import 'package:studiosdost/onboarding_screen.dart';
+import 'package:studiosdost/Screens/onboarding_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,13 +19,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'StudiosDost',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ChangeNotifierProvider(
+      create: (context) => EventProvider(),
+      child: MaterialApp(
+        title: 'StudiosDost',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const Root(),
       ),
-      home: const Root(),
     );
   }
 }

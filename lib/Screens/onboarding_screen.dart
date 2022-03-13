@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:studiosdost/login.dart';
-import 'package:studiosdost/signup.dart';
+import 'package:studiosdost/Screens/login.dart';
+import 'package:studiosdost/Screens/signup.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);

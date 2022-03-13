@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nanoid/async.dart';
-import 'package:studiosdost/database.dart';
+import 'package:studiosdost/Components/database.dart';
+import 'package:studiosdost/Components/localdatabase.dart';
 import 'package:studiosdost/home.dart';
-import 'package:studiosdost/localdatabase.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);

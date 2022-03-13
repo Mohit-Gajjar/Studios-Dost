@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nanoid/async.dart';
-import 'package:studiosdost/database.dart';
-import 'package:studiosdost/localdatabase.dart';
+import 'package:studiosdost/Components/database.dart';
+import 'package:studiosdost/Components/localdatabase.dart';
 
 class TodoListPage extends StatefulWidget {
   const TodoListPage({Key? key}) : super(key: key);
@@ -124,8 +124,6 @@ class TaskTile extends StatelessWidget {
         icon: const Icon(Icons.check_circle_outline),
         onPressed: () {
           Database().deleteTasks(userId, subtitle);
-          print("User id: " + userId);
-          print("Task id: " + subtitle);
         },
       ),
       leading: CircleAvatar(

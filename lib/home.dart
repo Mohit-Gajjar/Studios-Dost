@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:studiosdost/authentication.dart';
-import 'package:studiosdost/localdatabase.dart';
-import 'package:studiosdost/onboarding_screen.dart';
-import 'package:studiosdost/progress.dart';
-import 'package:studiosdost/shedule.dart';
-import 'package:studiosdost/todolist.dart';
-import 'package:studiosdost/water_tracker.dart';
+import 'package:studiosdost/Components/authentication.dart';
+import 'package:studiosdost/Components/localdatabase.dart';
+import 'package:studiosdost/Screens/progress.dart';
+import 'package:studiosdost/Screens/shedule.dart';
+import 'package:studiosdost/Screens/todolist.dart';
+import 'package:studiosdost/Screens/water_tracker.dart';
+import 'package:studiosdost/Screens/onboarding_screen.dart';
+
+
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
