@@ -16,6 +16,7 @@ class _AddEventState extends State<AddEvent> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController titleController = TextEditingController();
   late DateTime from, to;
+
   @override
   void initState() {
     if (widget.event == null) {
@@ -43,18 +44,20 @@ class _AddEventState extends State<AddEvent> {
               onPressed: saveFrom,
             )
           ]),
-         
-      body: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            buildTitle(),
-            const SizedBox(
-              height: 20,
-            ),
-            buildDates()
-          ],
+      body: Container(
+        margin:const EdgeInsets.symmetric(horizontal: 20),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              buildTitle(),
+              const SizedBox(
+                height: 20,
+              ),
+              buildDates()
+            ],
+          ),
         ),
       ),
     );
@@ -64,7 +67,7 @@ class _AddEventState extends State<AddEvent> {
         style: const TextStyle(fontSize: 24),
         validator: (title) =>
             title != null && title.isEmpty ? "Title Cannot be Empty" : null,
-        onFieldSubmitted:(_)=> saveFrom,
+        onFieldSubmitted: (_) => saveFrom,
         decoration: const InputDecoration(
             border: UnderlineInputBorder(), hintText: "Add Title"),
         controller: titleController,
@@ -191,8 +194,9 @@ class _AddEventState extends State<AddEvent> {
     final isValid = _formKey.currentState!.validate();
 
     if (isValid) {
-      final event = Event(titleController.text, "Description", from, to);
-      final provider = Provider.of<EventProvider>(context);
+      final event =
+          Event(titleController.text, "Description", from, to, isAllDay: false);
+      final provider = Provider.of<EventProvider>(context, listen: false);
       provider.addEvent(event);
       Navigator.of(context).pop();
     }

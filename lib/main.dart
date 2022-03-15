@@ -2,14 +2,17 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 import 'package:studiosdost/Components/event_provider.dart';
 import 'package:studiosdost/Components/localdatabase.dart';
 import 'package:studiosdost/home.dart';
 import 'package:studiosdost/Screens/onboarding_screen.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+ 
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
@@ -31,6 +34,7 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+ 
 }
 
 class Root extends StatefulWidget {

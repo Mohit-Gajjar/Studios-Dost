@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
 
 class Database {
   createUser(map, String id) async {
@@ -12,6 +13,29 @@ class Database {
         .collection('tasks')
         .doc(taskId)
         .set(map);
+  }
+
+  addWaterDrinked(map, String userId, String timeStamp) async {
+    return FirebaseFirestore.instance
+        .collection("users")
+        .doc(userId)
+        .collection('waterTracker')
+        .doc(timeStamp)
+        .set(map);
+  }
+
+  getWaterNotificationStatus(String userId) async {
+    String date = DateFormat('dd-MM-yyyy').format(DateTime.now());
+    QuerySnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
+        .instance
+        .collection("users")
+        .doc(userId)
+        .collection("waterTracker")
+        .where("date", isEqualTo: date)
+        .get();
+    var bool = snapshot.docs[0]['isStarted'];
+    print("isStarted: " + bool.toString());
+    return bool;
   }
 
   getTasks(String id) async {
