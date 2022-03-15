@@ -1,6 +1,6 @@
+import 'package:StudiosDost/Screens/login.dart';
+import 'package:StudiosDost/Screens/signup.dart';
 import 'package:flutter/material.dart';
-import 'package:studiosdost/Screens/login.dart';
-import 'package:studiosdost/Screens/signup.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -18,14 +18,41 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Image.asset(
+              'assets/icon.png',
+              width: 200,
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            Image.asset(
+              'assets/splash.png',
+              width: MediaQuery.of(context).size.width / 1.2,
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            const Text(
+              "Your Every Companion",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const Text(
+              "A Virtual Dost that cares for you",
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             GestureDetector(
               onTap: () => Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const SignUp())),
               child: Container(
                 height: 50,
-                width: 100,
+                width: MediaQuery.of(context).size.width / 1.5,
                 decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: Colors.green[600],
                     borderRadius: BorderRadius.circular(18.0)),
                 child: const Center(
                     child: Text(
@@ -42,7 +69,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   MaterialPageRoute(builder: (context) => const Login())),
               child: Container(
                 height: 50,
-                width: 100,
+                width: MediaQuery.of(context).size.width / 1.5,
                 decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(18.0)),

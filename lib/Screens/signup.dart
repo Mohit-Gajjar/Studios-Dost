@@ -1,9 +1,9 @@
+import 'package:StudiosDost/Components/database.dart';
+import 'package:StudiosDost/Components/localdatabase.dart';
+import 'package:StudiosDost/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nanoid/async.dart';
-import 'package:studiosdost/Components/database.dart';
-import 'package:studiosdost/Components/localdatabase.dart';
-import 'package:studiosdost/home.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -22,9 +22,7 @@ class _SignUpState extends State<SignUp> {
 
   generateId() async {
     id = await nanoid(10);
-    setState(() {
-      
-    });
+    setState(() {});
   }
 
   String name = " ";
@@ -77,6 +75,11 @@ class _SignUpState extends State<SignUp> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Image.asset(
+                  'assets/icon.png',
+                  width: 200,
+                ),
+                const SizedBox(height: 20,),
                 TextFormField(
                   controller: usernameController,
                   decoration: InputDecoration(

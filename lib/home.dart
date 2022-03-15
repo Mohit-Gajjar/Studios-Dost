@@ -1,13 +1,14 @@
+import 'package:StudiosDost/Components/authentication.dart';
+import 'package:StudiosDost/Components/localdatabase.dart';
+import 'package:StudiosDost/Screens/onboarding_screen.dart';
+import 'package:StudiosDost/Screens/progress.dart';
+import 'package:StudiosDost/Screens/shedule.dart';
+import 'package:StudiosDost/Screens/todolist.dart';
+import 'package:StudiosDost/Screens/water_tracker.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:quotes/quotes.dart';
-import 'package:studiosdost/Components/authentication.dart';
-import 'package:studiosdost/Components/localdatabase.dart';
-import 'package:studiosdost/Screens/progress.dart';
-import 'package:studiosdost/Screens/shedule.dart';
-import 'package:studiosdost/Screens/todolist.dart';
-import 'package:studiosdost/Screens/water_tracker.dart';
-import 'package:studiosdost/Screens/onboarding_screen.dart';
+
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -109,7 +110,7 @@ class _HomeState extends State<Home> {
                     onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: ((context) => const ProgressPage()))),
+                            builder: ((context) =>  ProgressPage(userId: userId,)))),
                     child: Container(
                       height: 100,
                       width: 100,

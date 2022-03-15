@@ -1,7 +1,7 @@
+import 'package:StudiosDost/Components/localdatabase.dart';
+import 'package:StudiosDost/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:studiosdost/Components/localdatabase.dart';
-import 'package:studiosdost/home.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -52,6 +52,13 @@ class _LoginState extends State<Login> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Image.asset(
+                  'assets/icon.png',
+                  width: 200,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
                 TextFormField(
                   controller: emailController,
                   decoration: InputDecoration(

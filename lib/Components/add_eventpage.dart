@@ -1,8 +1,8 @@
+import 'package:StudiosDost/Components/event.dart';
+import 'package:StudiosDost/Components/event_provider.dart';
+import 'package:StudiosDost/Components/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:studiosdost/Components/event.dart';
-import 'package:studiosdost/Components/event_provider.dart';
-import 'package:studiosdost/Components/utils.dart';
 
 class AddEvent extends StatefulWidget {
   final Event? event;

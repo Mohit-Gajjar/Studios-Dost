@@ -15,6 +15,24 @@ class Database {
         .set(map);
   }
 
+  addSpis(map, String userId, String taskId) async {
+    return FirebaseFirestore.instance
+        .collection("users")
+        .doc(userId)
+        .collection('marks')
+        .doc(taskId)
+        .set(map);
+  }
+
+  getSpis(map, String userId, String taskId) async {
+    return FirebaseFirestore.instance
+        .collection("users")
+        .doc(userId)
+        .collection('marks')
+        .doc(taskId)
+        .get();
+  }
+
   addWaterDrinked(map, String userId, String timeStamp) async {
     return FirebaseFirestore.instance
         .collection("users")
@@ -34,7 +52,6 @@ class Database {
         .where("date", isEqualTo: date)
         .get();
     var bool = snapshot.docs[0]['isStarted'];
-    print("isStarted: " + bool.toString());
     return bool;
   }
 

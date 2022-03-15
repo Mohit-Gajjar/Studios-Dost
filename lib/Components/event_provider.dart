@@ -1,5 +1,5 @@
+import 'package:StudiosDost/Components/event.dart';
 import 'package:flutter/material.dart';
-import 'package:studiosdost/Components/event.dart';
 
 class EventProvider extends ChangeNotifier {
   final List<Event> _events = [];

@@ -1,18 +1,15 @@
 // ignore_for_file: unrelated_type_equality_checks
-
+import 'package:StudiosDost/Components/event_provider.dart';
+import 'package:StudiosDost/Components/localdatabase.dart';
+import 'package:StudiosDost/Screens/onboarding_screen.dart';
+import 'package:StudiosDost/home.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:studiosdost/Components/event_provider.dart';
-import 'package:studiosdost/Components/localdatabase.dart';
-import 'package:studiosdost/home.dart';
-import 'package:studiosdost/Screens/onboarding_screen.dart';
-
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
- 
+
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
@@ -28,13 +25,13 @@ class MyApp extends StatelessWidget {
         title: 'StudiosDost',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+            primarySwatch: Colors.blue,
+            textTheme:
+                GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)),
         home: const Root(),
       ),
     );
   }
- 
 }
 
 class Root extends StatefulWidget {

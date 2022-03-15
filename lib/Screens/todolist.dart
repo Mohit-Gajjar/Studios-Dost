@@ -1,7 +1,7 @@
+import 'package:StudiosDost/Components/database.dart';
+import 'package:StudiosDost/Components/localdatabase.dart';
 import 'package:flutter/material.dart';
 import 'package:nanoid/async.dart';
-import 'package:studiosdost/Components/database.dart';
-import 'package:studiosdost/Components/localdatabase.dart';
 
 class TodoListPage extends StatefulWidget {
   const TodoListPage({Key? key}) : super(key: key);
@@ -16,7 +16,6 @@ class _TodoListPageState extends State<TodoListPage> {
   String userId = "";
   generateId() async {
     id = await nanoid(10);
-
     setState(() {});
   }
 

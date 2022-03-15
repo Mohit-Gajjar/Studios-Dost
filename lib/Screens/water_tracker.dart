@@ -1,9 +1,8 @@
+import 'package:StudiosDost/Components/database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:intl/intl.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
-import 'package:studiosdost/Components/database.dart';
-import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class WaterTracker extends StatefulWidget {
   final String userId;
@@ -46,6 +45,7 @@ class _WaterTrackerState extends State<WaterTracker> {
       if (val == true) {
         flutterLocalNotificationsPlugin.periodicallyShow(0, "Water Reminder",
             "Drink Water", RepeatInterval.hourly, generalNotificationDetails);
+            
       } else if (val == false) {
         flutterLocalNotificationsPlugin.cancelAll();
       }

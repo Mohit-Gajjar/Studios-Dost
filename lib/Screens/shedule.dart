@@ -1,8 +1,8 @@
+import 'package:StudiosDost/Components/add_eventpage.dart';
+import 'package:StudiosDost/Components/event.dart';
+import 'package:StudiosDost/Components/event_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:studiosdost/Components/add_eventpage.dart';
-import 'package:studiosdost/Components/event.dart';
-import 'package:studiosdost/Components/event_provider.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class ShedulePage extends StatefulWidget {
@@ -30,7 +30,6 @@ class _ShedulePageState extends State<ShedulePage> {
         ),
         body: SfCalendar(
           onTap: ((calendarTapDetails) {}),
-          
           view: CalendarView.month,
           dataSource: EventDataSource(events),
           monthViewSettings: const MonthViewSettings(
@@ -75,27 +74,6 @@ class EventDataSource extends CalendarDataSource {
     if (meeting is Event) {
       meetingData = meeting;
     }
-
     return meetingData;
   }
 }
-
-// class Events {
-//   /// Creates a meeting class with required details.
-//   Events(this.eventName, this.from, this.to, this.background, this.isAllDay);
-
-//   /// Event name which is equivalent to subject property of [Appointment].
-//   String eventName;
-
-//   /// From which is equivalent to start time property of [Appointment].
-//   DateTime from;
-
-//   /// To which is equivalent to end time property of [Appointment].
-//   DateTime to;
-
-//   /// Background which is equivalent to color property of [Appointment].
-//   Color background;
-
-//   /// IsAllDay which is equivalent to isAllDay property of [Appointment].
-//   bool isAllDay;
-// }
